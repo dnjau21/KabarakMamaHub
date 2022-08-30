@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".ui.measure.MeasureFragment">
+
+    <LinearLayout
+            android:layout_marginTop="0dp"
+            android:id="@+id/layoutTitle"
+            android:background="@color/primaryColor"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_height="100dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/measure_instructions"
+        />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:id="@+id/linearStatus"
+            android:layout_below="@id/layoutTitle"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="253dp"
+            android:background="@drawable/ic_statusframe"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/statusLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:background="@drawable/ic_statuslabelframe"
+                android:textSize="12sp"/>
+        <TextView
+                android:id="@+id/status"
+                android:background="@drawable/ic_statusframe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="12sp"
+                android:textColor="@color/white"/>
+
+
+    </LinearLayout>
+
+    <!--        <com.clinkod.mamashub.ui.views.HeartBeatView-->
+    <!--                android:id="@+id/heartBeat"-->
+    <!--                android:layout_width="150dp"-->
+    <!--                android:layout_height="200dp"-->
+    <!--                android:layout_below="@id/linearStatus"-->
+    <!--                android:layout_centerHorizontal="true"-->
+    <!--                app:duration="100"/>-->
+
+    <LinearLayout
+            android:id="@+id/linearMain"
+
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            android:layout_margin="20dp"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:id="@+id/sysContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            <TextView
+                    android:id="@+id/sysResults"
+                    android:background="@drawable/ic_measure_results"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/measureResults"
+            />
+            <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="12sp"
+                    android:text="Systolic"
+            />
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/diasContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            <TextView
+                    android:id="@+id/diaResults"
+                    style="@style/measureResults"
+                    android:background="@drawable/ic_measure_results"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+            />
+            <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="12sp"
+                    android:text="Diastolic"
+            />
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/hrContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            <TextView
+                    android:background="@drawable/ic_measure_results"
+                    android:id="@+id/hrResults"
+                    style="@style/measureResults"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="12sp"
+                    android:text="Heart rate"
+            />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+            android:layout_marginTop="100dp"
+            android:id="@+id/startReading"
+            android:layout_centerHorizontal="true"
+            style="@style/normalButton"
+            android:layout_below="@id/linearMain"
+            android:enabled="false"/>
+
+</RelativeLayout>

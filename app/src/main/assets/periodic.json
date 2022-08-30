@@ -1,0 +1,10 @@
+{
+  "survey_properties": {
+    "intro_message": "<h3><strong>Please take a few minutes to let us know how your week has been</strong></h3>",
+    "end_message": "<strong>And we're done.</strong><br> We wish you a great week up ahead!",
+    "skip_intro": false
+  },
+  "questions": [
+
+  ]
+}

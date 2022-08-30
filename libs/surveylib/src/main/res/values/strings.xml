@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidSurvey</string>
+    <string name="xprevious">Back</string>
+    <string name="xcontinue">Next</string>
+    <string name="start">Start</string>
+    <string name="close">Close</string>
+    <string name="finish">Finish</string>
+</resources>

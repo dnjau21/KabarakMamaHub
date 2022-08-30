@@ -1,0 +1,329 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:6860042301396221034",
+      "lastPropertyId": "4:6121486539350453662",
+      "name": "LocalProperty",
+      "properties": [
+        {
+          "id": "1:5906364486908309329",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4527716542170471625",
+          "name": "key",
+          "type": 9
+        },
+        {
+          "id": "3:8578306115534444156",
+          "name": "value",
+          "type": 9
+        },
+        {
+          "id": "4:6121486539350453662",
+          "name": "valueType",
+          "type": 5,
+          "flags": 4
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:8139804671877844847",
+      "lastPropertyId": "10:4216114574661117834",
+      "name": "HourlyData",
+      "properties": [
+        {
+          "id": "1:2999284372041675764",
+          "name": "_id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7224467844605843457",
+          "name": "id",
+          "type": 5,
+          "flags": 2
+        },
+        {
+          "id": "3:6764229080802661624",
+          "name": "timeTaken",
+          "type": 10
+        },
+        {
+          "id": "4:1651670224056267830",
+          "name": "heartRate",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "5:5574401633215808677",
+          "name": "systolicBp",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "6:24490677027260742",
+          "name": "diastolicBp",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "7:6924184407096820291",
+          "name": "activity",
+          "type": 9
+        },
+        {
+          "id": "8:4085892015353565586",
+          "name": "mood",
+          "type": 9
+        },
+        {
+          "id": "9:8448427175948539687",
+          "name": "synchronizedAt",
+          "type": 10
+        },
+        {
+          "id": "10:4216114574661117834",
+          "name": "remoteId",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:1014782387610784911",
+      "lastPropertyId": "9:2724174094441821406",
+      "name": "PeriodicData",
+      "properties": [
+        {
+          "id": "1:18437728255146588",
+          "name": "_id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5039578276359359609",
+          "name": "remoteId",
+          "type": 9
+        },
+        {
+          "id": "3:5436309731523706665",
+          "name": "dateRecorded",
+          "type": 10
+        },
+        {
+          "id": "4:7024500613112056933",
+          "name": "exerciseFrequency",
+          "type": 9
+        },
+        {
+          "id": "5:645754191433334934",
+          "name": "alcoholConsumption",
+          "type": 9
+        },
+        {
+          "id": "6:226288472608696945",
+          "name": "numberOfCigarettes",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "7:3317129192025017223",
+          "name": "sleepPattern",
+          "type": 9
+        },
+        {
+          "id": "8:940102039163242842",
+          "name": "medication",
+          "type": 9
+        },
+        {
+          "id": "9:2724174094441821406",
+          "name": "synchronizedAt",
+          "type": 10
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:197098401157424407",
+      "lastPropertyId": "6:4308180493240238524",
+      "name": "ActivityAndMood",
+      "properties": [
+        {
+          "id": "1:3185774963615021696",
+          "name": "_id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5488327826827124549",
+          "name": "timeRecorded",
+          "type": 10
+        },
+        {
+          "id": "3:1859546932545039829",
+          "name": "activity",
+          "type": 9
+        },
+        {
+          "id": "4:6626036674750281140",
+          "name": "mood",
+          "type": 9
+        },
+        {
+          "id": "5:7725846034064545238",
+          "name": "synchronizedAt",
+          "type": 10
+        },
+        {
+          "id": "6:4308180493240238524",
+          "name": "remoteId",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:972452459722482153",
+      "lastPropertyId": "11:3517856172453180890",
+      "name": "BpAndHeartRate",
+      "properties": [
+        {
+          "id": "1:338312351823008396",
+          "name": "_id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5883533319941583619",
+          "name": "timeTaken",
+          "type": 10
+        },
+        {
+          "id": "3:4171346736048437889",
+          "name": "heartRate",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "4:3936020536926910522",
+          "name": "systolicBp",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "5:4160704166871439460",
+          "name": "diastolicBp",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "6:4855023630147914052",
+          "name": "remoteId",
+          "type": 9
+        },
+        {
+          "id": "7:950110293439549758",
+          "name": "mother_id",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "8:7294033680979155661",
+          "name": "category",
+          "type": 9
+        },
+        {
+          "id": "9:1991297709179532701",
+          "name": "random_id",
+          "type": 9
+        },
+        {
+          "id": "10:3409070190559576780",
+          "name": "activity",
+          "type": 9
+        },
+        {
+          "id": "11:3517856172453180890",
+          "name": "mood",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:6092763720418766950",
+      "lastPropertyId": "9:8150667122712136617",
+      "name": "DailyData",
+      "properties": [
+        {
+          "id": "1:7069338259826875849",
+          "name": "_id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8681041877272955338",
+          "name": "remoteId",
+          "type": 9
+        },
+        {
+          "id": "3:7099744958747204767",
+          "name": "dateRecorded",
+          "type": 10
+        },
+        {
+          "id": "4:3318065995596371014",
+          "name": "exercised",
+          "type": 1,
+          "flags": 2
+        },
+        {
+          "id": "5:3728771262447469360",
+          "name": "alcoholConsumption",
+          "type": 9
+        },
+        {
+          "id": "6:244745605799523062",
+          "name": "numberOfCigarettes",
+          "type": 5,
+          "flags": 4
+        },
+        {
+          "id": "7:19832413115719089",
+          "name": "sleepPattern",
+          "type": 9
+        },
+        {
+          "id": "8:2189092510085827981",
+          "name": "medication",
+          "type": 9
+        },
+        {
+          "id": "9:8150667122712136617",
+          "name": "synchronizedAt",
+          "type": 10
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "6:6092763720418766950",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

@@ -1,0 +1,71 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Mamas Hub</string>
+    <string name="title_home">Home</string>
+    <string name="title_measure">Measure</string>
+    <string name="title_history">History</string>
+    <string name="title_health">Health</string>
+    <string name="title_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="channel_name">BP-Analytics</string>
+
+    <string name="channel_description">Background blood pressure and heart rate measurement.</string>
+    <string name="onboarding_signUp">Already have a Mama’s hub account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="ob_watch">Automatic blood pressure\nreading from smart watch</string>
+    <string name="ob_records">Record your health\nand pregancy history</string>
+    <string name="ob_pregnant">Get personalised medical\nmonitoring of your pregnancy</string>
+    <string name="connect_msg">Please connect your\ndevice to a smart watch</string>
+    <string name="measure_instructions">Please ensure minimal\n movement during measurement</string>
+    <string name="measure_period">Set blood pressure\n measurement frequency</string>
+    <string name="select_skin">Select your skin tone</string>
+    <string name="desc_fb">To access manual readings</string>
+    <string name="spinner_title">Select </string>
+
+    <string-array name="measurement_interval">
+        <item>3</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+    </string-array>
+    <string name="title_activity_otp">OtpActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!-- RadioButton values to show in the ui -->
+    <string name="formulary_first_question">Measure after every</string>
+    <string name="five_min">5 min</string>
+    <string name="fteen_min">15 min</string>
+    <string name="thirty_min">30 min</string>
+    <string name="ftfive_min">45 min</string>
+    <string name="onehr_min">1 hr</string>
+    <string name="thr_min">2 hrs</string>
+    <string name="threhr_min">3 hrs</string>
+    <string name="fourhr_min">4 hrs</string>
+    <string name="fivehr_min">5 hrs</string>
+    <string name="sixhr_min">6 hrs</string>
+    <string name="frequency">frequency</string>
+    <!-- RadioButtons values to return the mapper -->
+    <string name="fivemin">5</string>
+    <string name="fifteenmin">15</string>
+    <string name="thirtymin">30</string>
+    <string name="fourtyfivemin">45</string>
+    <string name="onehr">60</string>
+    <string name="twohr">120</string>
+    <string name="threehr">180</string>
+    <string name="fourhr">240</string>
+    <string name="fivehr">300</string>
+    <string name="sixhr">360</string>
+    <string name="mapper_default_value">Is not possible to mapper this value</string>
+
+
+</resources>

@@ -1,0 +1,99 @@
+{
+  "survey_properties": {
+    "intro_message": "<h3><strong>Lets get started by providing a few information</strong></h3><br> Let's go...",
+    "end_message": "Thank you!",
+    "skip_intro": false
+  },
+  "questions": [
+    {
+      "question_type": "String",
+      "question_title": "Full name?",
+      "description": "",
+      "required": true
+    },{
+      "question_type": "Date",
+      "question_title": "Date of Birth",
+      "description": "",
+      "required": true
+    },
+    {
+      "question_type": "String",
+      "question_title": "Enter your phone",
+      "validationPattern": "^[+]?[(]?[0-9]{3}[)]?[-\\\\s.]?[0-9]{3}[-\\\\s.]?[0-9]{4,6}$",
+      "description": "",
+      "required": true
+    },
+    {
+      "question_type": "Radioboxes",
+      "question_title": "What is your gender?",
+      "description": "",
+      "required": true,
+      "random_choices": false,
+      "choices": [
+        "Male",
+        "Female"
+      ]
+    },
+    {
+      "question_title": "What is your height(cm)?",
+      "description": "",
+      "required": true,
+      "question_type": "Number"
+    },
+    {
+      "question_title": "How much do you weigh(Kgs) ?",
+      "description": "",
+      "required": true,
+      "question_type": "Number"
+    },
+    {
+      "question_type": "String",
+      "question_title": "Name of next of Kin?",
+      "description": "",
+      "required": true
+    },
+    {
+      "question_type": "String",
+      "question_title": "Contact of next of Kin?",
+      "description": "",
+      "required": true
+    },
+    {
+      "question_type": "Radioboxes",
+      "question_title": "Relationship with next of Kin?",
+      "description": "",
+      "required": true,
+      "random_choices": false,
+      "choices": [
+        "Spouse",
+        "Sibling",
+        "Parent",
+        "child"
+      ]
+    },
+    {
+      "question_type": "String",
+      "question_title": "What is the name of your caregiver?",
+      "description": "",
+      "required": true
+    },
+    {
+      "question_type": "String",
+      "question_title": "Phone number of your caregiver?",
+      "validationPattern": "^[+]?[(]?[0-9]{3}[)]?[-\\\\s.]?[0-9]{3}[-\\\\s.]?[0-9]{4,6}$",
+      "description": "",
+      "required": true
+    },
+    {
+      "question_type": "Radioboxes",
+      "question_title": "Does your family have any history of hypertension?",
+      "description": "",
+      "required": true,
+      "random_choices": false,
+      "choices": [
+        "Yes",
+        "No"
+      ]
+    }
+  ]
+}

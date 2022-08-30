@@ -1,0 +1,56 @@
+{
+  "survey_properties": {
+    "intro_message": "<h3><strong>Please tell us your current mood and the activity you are/were involved in before taking this measurement</strong></h3>",
+    "end_message": "<strong>And we're done.</strong><br>",
+    "skip_intro": true
+  },
+  "questions": [
+    {
+      "question_type": "Emoticons",
+      "question_title": "Choose what best describes how you are feeling:",
+      "description": "",
+      "required": true,
+      "random_choices": true,
+      "choices": [
+        "Happy, happy_emoji.gif",
+        "Calm, calm.gif",
+        "Relaxed, relaxed.gif",
+        "Excited, silly.gif",
+        "Nervous, nervous.gif",
+        "Annoyed, annoyed.gif",
+        "Sad, sad.gif",
+        "Shy, shy.gif",
+        "Surprised, surprised.gif",
+        "Hungry, hungry.gif",
+        "Angry, angry.gif",
+        "Confused, confused.gif",
+        "Sleepy, sleepy.gif",
+        "Sick, sick.gif",
+        "Hurt, hurt.gif",
+        "Hot, hot.gif"
+      ]
+    },
+    {
+      "question_type": "Radioboxes",
+      "question_title": "Select an activity you are(were) engaged in within the last two hours:",
+      "description": "",
+      "required": true,
+      "random_choices": false,
+      "choices": [
+        "Seated / Resting",
+        "Walking - Leisure",
+        "Walking - Brisk",
+        "Exercising - Moderate",
+        "Exercising - Intense",
+        "Dancing / Playing",
+        "Gardening / Manual work",
+        "Housework",
+        "Office work - Seated / Meetings",
+        "Social gathering - Happy - Weddings, Birthdays",
+        "Social gathering - Sad - Funeral",
+        "Travelling",
+        "Sleeping"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "survey_properties": {
+    "intro_message": "<h3><strong>Please take a few minutes to let us know how your day has been</strong></h3>",
+    "end_message": "<strong>And we're done.</strong><br>",
+    "skip_intro": true
+  },
+  "questions": [
+    {
+      "question_title": "How much sleep did you get last night?",
+      "description": "",
+      "required": true,
+      "question_type": "Radioboxes",
+      "random_choices": false,
+      "choices": [
+        "More than 7 hours",
+        "6 hours",
+        "4 hours",
+        "Less than 4 hours"
+      ]
+    },
+    {
+      "question_type": "Radioboxes",
+      "question_title": "Have you exercised today?",
+      "description": "",
+      "required": true,
+      "random_choices": false,
+      "choices": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "question_title": "Have you taken any medication today? If so, please indicate the number of times you took a medication",
+      "description": "",
+      "required": true,
+      "question_type": "Radioboxes",
+      "random_choices": false,
+      "choices": [
+        "None",
+        "Once",
+        "Twice",
+        "More than three times",
+        "Other"
+      ]
+    },
+    {
+      "question_type": "Radioboxes",
+      "question_title": "How much alcohol have you today?",
+      "description": "",
+      "required": true,
+      "random_choices": false,
+      "choices": [
+        "None",
+        "A glass of wine/two bottles of beer/one tot of whisky or less",
+        "More than one glass of wine/two bottles of beer/one tot of whisky"
+      ]
+    },
+    {
+      "question_title": "Do you smoke? If so, please indicate the number of cigarettes you have smoked today",
+      "description": "",
+      "required": true,
+      "question_type": "Number",
+      "defaultValue": 0
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include android:id="@+id/toolbar_id"
+        layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_id"
+        android:background="@color/clr_otp_bg">
+
+        <LinearLayout
+            android:id="@+id/frst_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Verification Code"
+                android:textColor="@color/clr_white_text"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Please type the verification code sent\n"
+                android:textColor="@color/clr_grey_text"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/frst_ll"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/clr_grey_text_transparent"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textColor="@color/clr_white_text"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/clr_grey_text_transparent"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textColor="@color/clr_white_text"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/clr_grey_text_transparent"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textColor="@color/clr_white_text"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/clr_grey_text_transparent"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textColor="@color/clr_white_text"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+        <ProgressBar
+            style="@style/MyDialog"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/progressBar2"
+            android:indeterminateDrawable="@drawable/pregressbar_circle"
+            android:progressTintMode="src_atop"
+            android:layout_centerInParent="true"
+            android:indeterminateDuration="500"
+            android:layout_marginTop="200dp"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:indeterminateOnly="true"
+
+            />
+</RelativeLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/date"
+                android:textColor="@color/grey_500"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="textStart"
+                android:paddingTop="10dp"
+                android:textSize="12sp"/>
+        <TextView
+                android:id="@+id/lblSys"
+                android:layout_marginLeft="-20dp"
+                android:textColor="@color/grey_500"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Sys"
+                android:fontFamily="@font/poppins_medium"
+                android:textAlignment="textStart"
+                android:paddingTop="10dp"
+                android:textSize="12sp"/>
+
+        <TextView
+                android:id="@+id/sys"
+                android:textColor="@color/grey_black_1000"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="-55dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:text="value"
+                android:textAlignment="textStart"
+                android:textSize="15sp"/>
+        <TextView
+                android:id="@+id/lblDia"
+                android:layout_marginLeft="-20dp"
+                android:textColor="@color/grey_500"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Dia"
+                android:fontFamily="@font/poppins_medium"
+                android:textAlignment="textStart"
+                android:paddingTop="10dp"
+                android:textSize="12sp"/>
+        <TextView
+                android:id="@+id/dia"
+                android:textColor="@color/grey_black_1000"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="-55dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:textAlignment="textStart"
+                android:textSize="15sp"/>
+
+<!--        <TextView-->
+<!--                android:id="@+id/status"-->
+<!--                android:textColor="@color/grey_black_1000"-->
+<!--                android:layout_width="10dp"-->
+<!--                android:background="@drawable/vitals_status_normal_indicator"-->
+<!--                android:layout_marginStart="-55dp"-->
+<!--                android:layout_height="35dp"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:layout_weight="1"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="12sp"/>-->
+        <Button
+
+            android:id="@+id/captureActivity"
+            android:layout_centerHorizontal="true"
+            style="@style/normalButton"
+            android:textColor="@color/white"
+            android:layout_width="100dp"
+            android:layout_marginStart="-20dp"
+            android:layout_height="35dp"
+            android:text="Activity"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

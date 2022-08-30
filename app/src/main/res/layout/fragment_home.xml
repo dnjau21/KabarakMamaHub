@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/main_bgColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        tools:context=".ui.home.HomeFragment">
+
+    <RelativeLayout
+            android:id="@+id/profileContainer"
+            android:layout_width="match_parent"
+            android:background="@drawable/profile_container"
+            android:layout_height="260dp"
+            android:elevation="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icon_profile"
+                android:src="@drawable/ic_icon_profile"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+        <TextView
+                android:id="@+id/greeting"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/poppins"
+                android:textSize="12sp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon_profile"/>
+        <TextView
+                android:id="@+id/username"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/greeting"/>
+        <TextView
+                android:id="@+id/profilePrompt"
+                android:text="Hi, Kindly update your profile"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/greeting"/>
+        <!--            TODO - Add drop shadow to the layout-->
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+            app:layout_constraintTop_toBottomOf="@id/profileContainer"
+            android:background="@drawable/pressure_card"
+            android:layout_width="330dp" android:layout_height="138dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.108">
+
+
+        <LinearLayout
+                android:id="@+id/bpLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/txtBpLabel"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:text="Blood Pressure"
+
+            />
+
+            <TextView
+                    android:id="@+id/txtBpTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="12sp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="-5dp"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_below="@id/bpLabel"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+
+                <TextView android:id="@+id/txtSys"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="@color/white"
+                          android:fontFamily="@font/poppins_light"
+                          android:textSize="12sp"
+                          android:text="Sys"
+                          android:gravity="center_horizontal"
+                          android:layout_marginStart="10dp"
+                />
+
+                <TextView
+                        android:layout_below="@id/txtSys"
+                          android:id="@+id/txtSysValue"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="@color/white"
+                          android:fontFamily="@font/poppins_semibold"
+                          android:textSize="30sp"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="true"
+                        android:layout_marginTop="-15dp"
+                          android:layout_marginStart="10dp"/>
+
+                <TextView
+                        android:layout_below="@id/txtSysValue"
+                        android:layout_marginTop="-15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/poppins_light"
+                        android:textSize="11sp"
+                        android:gravity="center_horizontal"
+                        android:text="mmHg"
+                        android:layout_marginStart="10dp"/>
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:layout_marginStart="30dp"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                <RelativeLayout
+                        android:layout_marginStart="-10dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp">
+
+
+                    <TextView android:id="@+id/txtDia"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/white"
+                              android:fontFamily="@font/poppins_light"
+                              android:textSize="11sp"
+                              android:text="Dia"
+                              android:layout_marginStart="10dp"
+                              />
+
+                    <TextView android:layout_below="@id/txtDia"
+                              android:layout_marginTop="-15dp"
+                              android:id="@+id/txtDiaValue"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="@color/white"
+                              android:fontFamily="@font/poppins_semibold"
+                              android:textSize="30sp"
+                              android:includeFontPadding="true"
+                              android:layout_marginStart="10dp"/>
+
+                    <TextView
+                            android:layout_below="@id/txtDiaValue"
+                            android:layout_marginTop="-15dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/poppins_light"
+                            android:textSize="11sp"
+                            android:text="mmHg"
+                            android:layout_marginStart="10dp"/>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="120dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/heart_rate_card"
+                android:layout_height="119dp"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:id="@+id/bpHrt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/txtHrLabel"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/alternate_text_color"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:text="Heart rate"
+                        android:includeFontPadding="false"
+
+                />
+                <!--                TODO - add heart icon-->
+
+                <TextView
+                        android:id="@+id/txtHrTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/alternate_text_color"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="12sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="-5dp"
+                        android:includeFontPadding="false"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false">
+
+
+                <TextView android:id="@+id/txtHr"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="@color/alternate_text_color"
+                          android:fontFamily="@font/poppins_light"
+                          android:textSize="11sp"
+                          android:text="Hr"
+                          android:layout_marginStart="10dp"/>
+
+                <TextView android:layout_below="@id/txtHr"
+                          android:id="@+id/txtHrValue"
+                          android:layout_marginTop="-15dp"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="@color/alternate_text_color"
+                          android:fontFamily="@font/poppins_semibold"
+                          android:textSize="30sp"
+                          android:layout_marginStart="10dp"/>
+
+                <TextView
+                        android:layout_below="@id/txtHrValue"
+                        android:layout_marginTop="-15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/alternate_text_color"
+                        android:fontFamily="@font/poppins_light"
+                        android:textSize="11sp"
+                        android:text="Bpm"
+                        android:layout_marginStart="10dp"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

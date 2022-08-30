@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.history.HistoryFragment">
+
+    <com.github.jhonnyx2012.horizontalpicker.HorizontalPicker
+            android:id="@+id/hPicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.53">
+
+    </com.github.jhonnyx2012.horizontalpicker.HorizontalPicker>
+
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            app:layout_constraintTop_toBottomOf="@id/hPicker"
+            style="@style/custom_tabLayout"
+            app:tabTextAppearance="@style/tab_text_appearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/fPager"
+                android:background="@color/main_bgColor"
+                app:layout_constraintTop_toBottomOf="@id/tab_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+        </androidx.viewpager2.widget.ViewPager2>
+
+    <!-- <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:gravity="center"
+             app:layout_constraintTop_toBottomOf="@+id/fPager"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintVertical_bias="0.25">
+         <TextView
+                 android:id="@+id/manual"
+                 android:text="Take your readings manually"
+                 android:textColor="@color/black"
+                 android:textSize="14sp"
+                 android:layout_margin="5dp"
+                 android:elevation="4dp"
+                 android:fontFamily="@font/poppins"
+                 android:layout_gravity="center"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"/>
+
+         <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+                 android:id="@+id/manual_add"
+                 app:fabSize="normal"
+                 android:backgroundTint="@color/primary"
+                 android:elevation="20dp"
+                 app:tint="@color/white"
+                 android:layout_marginStart="10dp"
+                 android:src="@drawable/ic_pulse"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:contentDescription="@string/desc_fb"/>
+
+
+     </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

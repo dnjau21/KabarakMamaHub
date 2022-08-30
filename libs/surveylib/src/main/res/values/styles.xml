@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/grey_white_1000</item>
+        <!--<item name="android:colorButtonNormal">@color/Red</item>-->
+        <item name="android:textColor">@color/grey_white_1000</item>
+    </style>
+
+</resources>

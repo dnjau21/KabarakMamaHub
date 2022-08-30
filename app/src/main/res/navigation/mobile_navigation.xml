@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.clinkod.kabarak.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_measure"
+        android:name="com.clinkod.kabarak.ui.measure.MeasureFragment"
+        android:label="@string/title_measure"
+        tools:layout="@layout/fragment_measure" >
+        <action
+            android:id="@+id/action_navigation_measure_to_deviceScanFragment2"
+            app:destination="@id/deviceScanFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.clinkod.kabarak.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.clinkod.kabarak.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_navigation_settings_to_bioInfoFragment"
+            app:destination="@id/bioInfoFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_deviceScanFragment2"
+            app:destination="@id/deviceScanFragment2" />
+        <action
+            android:id="@+id/action_navigation_settings_to_skinSettingFragment"
+            app:destination="@id/skinSettingFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_periodicFragment"
+            app:destination="@id/periodicFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_next_of_kinFragment"
+            app:destination="@id/nextOfKinFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_navigation_settings_to_about_usFragment"
+            app:destination="@id/aboutusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bioInfoFragment"
+        android:name="com.clinkod.kabarak.ui.bioinfo.BioInfoFragment"
+        android:label="Update Information"
+        tools:layout="@layout/bio_info_fragment" />
+    <fragment
+        android:id="@+id/deviceScanFragment2"
+        android:name="com.clinkod.kabarak.ui.devicescan.DeviceScanActivity"
+        android:label="Link Watch"
+        tools:layout="@layout/device_scan_fragment" />
+    <fragment
+        android:id="@+id/skinSettingFragment"
+        android:name="com.clinkod.kabarak.ui.settings.SkinSettingFragment"
+        android:label="skin_setting_fragment"
+        tools:layout="@layout/skin_setting_fragment" />
+    <fragment
+        android:id="@+id/periodicFragment"
+        android:name="com.clinkod.kabarak.ui.settings.PeriodicFragment"
+        android:label="Periodic scheduler"
+        tools:layout="@layout/fragment_periodic" />
+    <fragment
+        android:id="@+id/nextOfKinFragment"
+        android:name="com.clinkod.kabarak.ui.settings.NextOfKinFragment"
+        android:label="Next of kin "
+        tools:layout="@layout/fragment_next_of_kin" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.clinkod.kabarak.ui.settings.ProfileFragment"
+        android:label="My Profile "
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/aboutusFragment"
+        android:name="com.clinkod.kabarak.ui.settings.AboutUsFragment"
+        android:label="About us"
+        tools:layout="@layout/fragment_about_us" />
+
+</navigation>
+
+<!--    android:name="com.clinkod.kabarak.ui.devicescan.DeviceScanFragment"-->
