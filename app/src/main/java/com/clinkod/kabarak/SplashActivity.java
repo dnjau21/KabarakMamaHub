@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.clinkod.kabarak.auth.SignUp;
 import com.clinkod.kabarak.exceptions.LocalPropertyNotFound;
 import com.clinkod.kabarak.models.PropertyUtils;
 import com.clinkod.kabarak.ui.onboarding.OnBoarding;
@@ -26,12 +28,11 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_splash);
-
-
 
         handler = new Handler();
         handler.postDelayed(() -> {
@@ -46,7 +47,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-//                Intent intent = new Intent(SplashActivity.this, Registration.class);
+
 
         }, 1000);
 

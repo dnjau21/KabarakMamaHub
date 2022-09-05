@@ -97,13 +97,24 @@
         <entry key="..\:/Users/jerem/AndroidStudioProjects/mamashub/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2760416666666667" />
         <entry key="..\:/Users/jerem/AndroidStudioProjects/mamashub/libs/surveylib/src/main/res/layout/activity_main_survey.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/jerem/AppData/Local/Android/Sdk/platforms/android-30/data/res/layout/simple_spinner_dropdown_item.xml" value="0.2884963768115942" />
+        <entry key="app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.248" />
+        <entry key="app/src/main/res/drawable/ic_email.xml" value="0.248" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2760655721028646" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/device_scan_fragment.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/fragment_measure.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_personal_info.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.4036458333333333" />
       </map>
     </option>
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

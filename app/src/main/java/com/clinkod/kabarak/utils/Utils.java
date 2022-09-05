@@ -60,7 +60,7 @@ public class Utils {
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public static Date convertStringToDate(String date) throws ParseException{
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 
         return sdf.parse(date);
     }
@@ -137,7 +137,13 @@ public class Utils {
         alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent alarmIntent = new Intent(context.getApplicationContext(), BpAndHeartRateAlarmReceiver.class);
 
-        alarmPendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        alarmPendingIntent = PendingIntent.getBroadcast(
+                context,
+                0,
+                alarmIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE
+
+        );
 
         /*if(!PropertyUtils.doesAutomaticMeasure()){
             alarmManager.cancel(alarmPendingIntent);
@@ -170,7 +176,12 @@ public class Utils {
         Intent alarmIntent = new Intent(context.getApplicationContext(), DailyDataAlarmReceiver.class);
         alarmIntent.putExtra("type", AlarmReceiver.ALARM_TYPE_DAILY_DATA);
 
-        alarmPendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        alarmPendingIntent = PendingIntent.getBroadcast(
+                context,
+                0,
+                alarmIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
 
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, alarmPendingIntent);
@@ -234,7 +245,7 @@ public class Utils {
         Intent intent=new Intent(context, MainActivity.class);
         String CHANNEL_ID="MYCHANNEL";
         NotificationChannel notificationChannel=new NotificationChannel(CHANNEL_ID,"name", NotificationManager.IMPORTANCE_LOW);
-        PendingIntent pendingIntent=PendingIntent.getActivity(context,1,intent,0);
+        PendingIntent pendingIntent=PendingIntent.getActivity(context,1,intent,0 | PendingIntent.FLAG_IMMUTABLE);
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
 

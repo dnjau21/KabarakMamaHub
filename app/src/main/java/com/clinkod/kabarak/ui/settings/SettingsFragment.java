@@ -18,14 +18,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.clinkod.kabarak.LoginActivity;
-import com.clinkod.kabarak.MainActivity;
+import com.clinkod.kabarak.auth.LoginActivity;
 import com.clinkod.kabarak.Registration;
 import com.clinkod.kabarak.R;
 import com.clinkod.kabarak.models.BioData;
 import com.clinkod.kabarak.models.PropertyUtils;
 import com.clinkod.kabarak.ui.MainActivityFragment;
-import com.clinkod.kabarak.ui.OtpActivity;
 import com.clinkod.kabarak.ui.bioinfo.BioInfoFragment;
 import com.clinkod.kabarak.ui.devicescan.DeviceScanActivity;
 import com.clinkod.kabarak.ui.onboarding.OnBoarding;

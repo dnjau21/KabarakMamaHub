@@ -76,7 +76,6 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
 
         myCal = Calendar.getInstance();
 
-
         firstname = findViewById(R.id.ted_first_name);
         lastname = findViewById(R.id.ted_last_name);
         btnSignUp = findViewById(R.id.btnSave);
@@ -103,8 +102,6 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
             phoneNumber.setText(phone_number_v);
             dob.setText(date_of_birth_v);
 
-
-
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,10 +127,14 @@ public class Registration extends AppCompatActivity implements DatePickerDialog.
                     String idnumber = id_number.getText().toString().trim();
                     String marital_status = maritalStatus;
 
-                    Mother.createMotherData(mother_id_v,firstName + lastName , firstName,lastName, Integer.parseInt(idnumber),phone ,dateOfBirth,mother_id_v,otp, Registration.this);
+                    Mother.createMotherData(mother_id_v,firstName + lastName , firstName,
+                            lastName, Integer.parseInt(idnumber),phone ,dateOfBirth,
+                            mother_id_v,otp,
+                            Registration.this);
 
                     PropertyUtils.setHasCompletedOnboarding(true);
                     PropertyUtils.logIn(true);
+
                     goToMainActivity();
 
                 }

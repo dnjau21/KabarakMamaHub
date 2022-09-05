@@ -278,7 +278,7 @@ public class DataReadService extends IntentService {
 
             // Create notification default intent.
             Intent intent = new Intent();
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0 | PendingIntent.FLAG_IMMUTABLE);
 
             // Create notification builder.
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
@@ -314,7 +314,7 @@ public class DataReadService extends IntentService {
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
         stackBuilder.addNextIntentWithParentStack(resultIntent);
         PendingIntent resultPendingIntent =
-                stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+                stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         NotificationChannel chan = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_LOW);
         chan.setLightColor(Color.BLUE);

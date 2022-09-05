@@ -12,9 +12,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
-import com.clinkod.kabarak.LoginActivity;
+import com.clinkod.kabarak.auth.LoginActivity;
 import com.clinkod.kabarak.R;
 import com.clinkod.kabarak.Registration;
+import com.clinkod.kabarak.auth.SignUp;
 
 public class OnBoarding extends AppCompatActivity {
 
@@ -54,7 +55,7 @@ public class OnBoarding extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OnBoarding.this, Registration.class);
+                Intent intent = new Intent(OnBoarding.this, SignUp.class);
                 startActivity(intent);
             }
         });
