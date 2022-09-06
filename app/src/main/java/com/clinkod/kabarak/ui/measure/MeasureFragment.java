@@ -19,6 +19,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.clinkod.kabarak.R;
+import com.clinkod.kabarak.fhir.helper.FormatterClass;
 import com.clinkod.kabarak.models.PropertyUtils;
 import com.clinkod.kabarak.services.DataReadService;
 import com.clinkod.kabarak.ui.MainActivityFragment;
@@ -48,6 +49,11 @@ public class MeasureFragment extends MainActivityFragment {
     private Handler handler;
 
     private DataReadService dataReadService;
+
+    private FormatterClass formatterClass = new FormatterClass();
+
+    public static final String QUESTIONNAIRE_FILE_PATH_KEY = "questionnaire-file-path-key";
+    public static final String QUESTIONNAIRE_FRAGMENT_TAG = "questionnaire-fragment-tag";
 
     private final BroadcastReceiver bleServiceReceiver = new BroadcastReceiver() {
         @Override
@@ -249,6 +255,16 @@ public class MeasureFragment extends MainActivityFragment {
         diaResults.setText(String.valueOf(diastole));
 //        bpResults.setText(String.format("Blood Pressure: %d/ %d", systole, diastole) );
         hrResults.setText(String.valueOf(heartrate));
+
+        /**
+         * TODO - Send these data to the fhir server
+         * Get the patient id from the shared preferences
+         */
+        String patientId = formatterClass.retrieveSharedPreference(requireContext(), "patientId");
+        if (patientId != null) {
+
+
+        }
 
     }
 

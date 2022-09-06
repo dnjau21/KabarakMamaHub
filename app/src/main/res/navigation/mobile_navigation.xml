@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_measure"
-        android:name="com.clinkod.kabarak.ui.measure.MeasureFragment"
+        android:name="com.clinkod.kabarak.ui.measure.FragmentMeasure"
         android:label="@string/title_measure"
         tools:layout="@layout/fragment_measure" >
         <action

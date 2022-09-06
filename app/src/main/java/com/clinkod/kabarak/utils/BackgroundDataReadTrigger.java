@@ -12,6 +12,7 @@ import android.util.Log;
 import com.clinkod.kabarak.events.ConnectEvent;
 import com.clinkod.kabarak.models.PropertyUtils;
 import com.clinkod.kabarak.services.DataReadService;
+import com.clinkod.kabarak.ui.measure.FragmentMeasure;
 import com.clinkod.kabarak.ui.measure.MeasureFragment;
 import com.yucheng.ycbtsdk.Constants;
 import com.yucheng.ycbtsdk.Response.BleConnectResponse;
@@ -178,7 +179,8 @@ public class BackgroundDataReadTrigger {
             if(dataReadService.getState() == DataReadService.STATE_READY){
                 //dataReadService.sendGetTempCommands();
                 dataReadService.sendReadCommands();
-                context.getApplicationContext().registerReceiver(mGattUpdateReceiver, MeasureFragment.makeGattUpdateIntentFilter());
+                FragmentMeasure fragmentMeasure = new FragmentMeasure();
+                context.getApplicationContext().registerReceiver(mGattUpdateReceiver, fragmentMeasure.makeGattUpdateIntentFilter());
             }
         }else{
             int state = DataReadService.STATE_DISCONNECTED;
