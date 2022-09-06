@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.*;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.clinkod.kabarak.MainActivity;
@@ -41,6 +42,7 @@ import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiresApi(api = Build.VERSION_CODES.S)
 public class DeviceScanActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String TAG ="DeviceScan";
@@ -67,7 +69,10 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_PHONE_STATE,
             Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.BLUETOOTH
+            Manifest.permission.BLUETOOTH_SCAN,
+            Manifest.permission.BLUETOOTH_CONNECT,
+            Manifest.permission.BLUETOOTH_PRIVILEGED
+
     };
 
     BleConnectResponse bleConnectResponse = new BleConnectResponse() {
