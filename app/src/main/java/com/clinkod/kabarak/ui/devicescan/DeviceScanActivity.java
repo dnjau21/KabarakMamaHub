@@ -62,8 +62,12 @@ public class DeviceScanActivity extends AppCompatActivity implements View.OnClic
 
 
     private String[] permissionArray = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE
-            , Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_PHONE_STATE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.BLUETOOTH
     };
 
     BleConnectResponse bleConnectResponse = new BleConnectResponse() {
