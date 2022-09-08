@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_navigation_measure_to_deviceScanFragment2"
             app:destination="@id/deviceScanFragment2" />
+        <argument
+            android:name="patient_id"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -26,6 +29,13 @@
         android:name="com.clinkod.kabarak.ui.history.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/navigation_date"
+        android:name="com.clinkod.kabarak.ui.appointments.AppointmentFragment"
+        android:label="@string/title_date"
+        tools:layout="@layout/fragment_appointment" />
+
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.clinkod.kabarak.ui.settings.SettingsFragment"

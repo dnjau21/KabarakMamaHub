@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.clinkod.kabarak.auth.SignUp;
 import com.clinkod.kabarak.exceptions.LocalPropertyNotFound;
+import com.clinkod.kabarak.fhir.viewmodel.MainActivityViewModel;
 import com.clinkod.kabarak.models.PropertyUtils;
 import com.clinkod.kabarak.ui.onboarding.OnBoarding;
 
@@ -25,12 +26,19 @@ public class SplashActivity extends AppCompatActivity {
     private static final String FIRST_TIME_USE = "first_time_use";
     private static final String IS_LOGGED_IN  = "first_time_use";
 
+    private  MainActivityViewModel mainActivityViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+
+        mainActivityViewModel = new MainActivityViewModel(getApplication());
+        mainActivityViewModel.poll();
+
 
         setContentView(R.layout.activity_splash);
 

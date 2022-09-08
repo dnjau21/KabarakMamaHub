@@ -9,10 +9,8 @@ import androidx.lifecycle.viewModelScope
 import ca.uhn.fhir.context.FhirContext
 import ca.uhn.fhir.context.FhirVersionEnum
 import com.clinkod.kabarak.MamasHubApplication
-import com.clinkod.kabarak.fhir.helper.CodingObservation
-import com.clinkod.kabarak.fhir.helper.FormatterClass
-import com.clinkod.kabarak.fhir.helper.QuantityObservation
-import com.clinkod.kabarak.fhir.helper.QuestionnaireHelper
+import com.clinkod.kabarak.fhir.helper.*
+import com.clinkod.kabarak.ui.measure.FragmentMeasure
 import com.google.android.fhir.FhirEngine
 import com.google.android.fhir.datacapture.mapping.ResourceMapper
 import com.google.android.fhir.datacapture.validation.QuestionnaireResponseValidator
@@ -37,7 +35,7 @@ class AddPatientDetailsViewModel(application: Application, private val state: Sa
     private fun getQuestionnaireJson():String{
         questionnaireJson?.let { return it!! }
 
-//        questionnaireJson = readFileFromAssets(state[MeasureFragment.QUESTIONNAIRE_FILE_PATH_KEY]!!)
+        questionnaireJson = readFileFromAssets(state[FragmentMeasure.QUESTIONNAIRE_FILE_PATH_KEY]!!)
         return questionnaire!!
     }
 
@@ -51,11 +49,9 @@ class AddPatientDetailsViewModel(application: Application, private val state: Sa
 
     fun createEncounter(
         patientReference: Reference,
-        encounterId: String,
         questionnaireResponse: QuestionnaireResponse,
-        dataCodeList: ArrayList<CodingObservation>,
         dataQuantityList: ArrayList<QuantityObservation>,
-        encounterReason: String
+        encounter: DbEncounter
     ) {
 
         viewModelScope.launch {
@@ -63,18 +59,6 @@ class AddPatientDetailsViewModel(application: Application, private val state: Sa
             val bundle = ResourceMapper.extract(questionnaireResource, questionnaireResponse)
 
             val questionnaireHelper = QuestionnaireHelper()
-
-            dataCodeList.forEach {
-                bundle.addEntry()
-                    .setResource(
-                        questionnaireHelper.codingQuestionnaire(
-                            it.code,
-                            it.display,
-                            it.value
-                        )
-                    )
-                    .request.url = "Observation"
-            }
 
             dataQuantityList.forEach {
                 bundle.addEntry()
@@ -91,21 +75,23 @@ class AddPatientDetailsViewModel(application: Application, private val state: Sa
             }
 
 
-            createCarePlan(patientReference, encounterId, encounterReason)
-            saveResources(bundle, patientReference, encounterId, encounterReason)
+            createCarePlan(patientReference, encounter)
+            saveResources(bundle, patientReference, encounter)
 
         }
 
     }
 
+
+
     //Create CarePlan
     private suspend fun createCarePlan(
         patientReference: Reference,
-        encounterId: String,
-        encounterReason: String
+        encounter: DbEncounter
     ) {
 
-        val encounterReference = Reference("Encounter/$encounterId")
+        val encounterReference = encounter.reference
+        val encounterReason = encounter.description
 
         val carePlan = CarePlan()
         carePlan.id = FormatterClass().generateUuid()
@@ -122,11 +108,13 @@ class AddPatientDetailsViewModel(application: Application, private val state: Sa
     private suspend fun saveResources(
         bundle: Bundle,
         subjectReference: Reference,
-        encounterId: String,
-        encounterReason: String,
+        encounter: DbEncounter,
     ) {
 
-        val encounterReference = Reference("Encounter/$encounterId")
+        val encounterReference = encounter.reference
+        val encounterReason = encounter.description
+        val encounterId = encounter.encounterId
+
 
         bundle.entry.forEach {
 
@@ -161,6 +149,9 @@ class AddPatientDetailsViewModel(application: Application, private val state: Sa
     }
 
     private suspend fun saveResourceToDatabase(resource: Resource) {
+
+        Log.e("------", "------")
+        println(resource.id )
         fhirEngine.create(resource)
     }
 

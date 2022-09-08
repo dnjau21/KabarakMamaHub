@@ -5,25 +5,38 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
+import androidx.activity.viewModels
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.clinkod.kabarak.MamasHubApplication
 import com.clinkod.kabarak.R
+import com.clinkod.kabarak.fhir.helper.DbEncounter
+import com.clinkod.kabarak.fhir.helper.DbResourceViews
 import com.clinkod.kabarak.fhir.helper.FormatterClass
+import com.clinkod.kabarak.fhir.helper.QuantityObservation
+import com.clinkod.kabarak.fhir.viewmodel.AddPatientDetailsViewModel
+import com.clinkod.kabarak.fhir.viewmodel.MainActivityViewModel
+import com.clinkod.kabarak.fhir.viewmodel.PatientDetailsViewModel
 import com.clinkod.kabarak.models.PropertyUtils
 import com.clinkod.kabarak.services.DataReadService
 import com.clinkod.kabarak.ui.devicescan.DeviceScanActivity
+import com.google.android.fhir.FhirEngine
+import com.google.android.fhir.datacapture.QuestionnaireFragment
+import org.hl7.fhir.r4.model.Reference
 
 class FragmentMeasure : Fragment(){
 
@@ -47,14 +60,25 @@ class FragmentMeasure : Fragment(){
     private lateinit var handler: Handler
     private lateinit var controller: NavController
 
-    @RequiresApi(Build.VERSION_CODES.N)
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
+    private val viewModel: AddPatientDetailsViewModel by viewModels()
+    private lateinit var patientDetailsViewModel: PatientDetailsViewModel
 
+    private lateinit var patientId: String
+    private lateinit var fhirEngine: FhirEngine
+    private val mainViewModel: MainActivityViewModel by viewModels()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         rootView = inflater.inflate(R.layout.fragment_measure, container, false)
 
-        Toast.makeText(context, "FragmentMeasure", Toast.LENGTH_SHORT).show()
+        mainViewModel.poll()
+
+        patientId = formatterClass.retrieveSharedPreference(requireContext(), "patientId").toString()
+        fhirEngine = MamasHubApplication.fhirEngine(requireContext())
+
+        patientDetailsViewModel = ViewModelProvider(this,
+            PatientDetailsViewModel.
+            PatientDetailsViewModelFactory(requireActivity().application,fhirEngine, patientId)
+        )[PatientDetailsViewModel::class.java]
 
         //final TextView textView = root.findViewById(R.id.text_dashboard);
         handler = Handler()
@@ -95,6 +119,12 @@ class FragmentMeasure : Fragment(){
             makeGattUpdateIntentFilter()
         )
 
+        updateArguments()
+
+        if (savedInstanceState == null){
+            addQuestionnaireFragment()
+        }
+
 
         /*if(!Utils.isServiceRunning(getActivity(), DataReadService.class))
             DataReadService.startActionDataReadService(getActivity());*/
@@ -112,6 +142,23 @@ class FragmentMeasure : Fragment(){
         }
 
         return rootView
+    }
+
+    private fun updateArguments() {
+
+        val bundle = Bundle()
+        bundle.putString(QUESTIONNAIRE_FILE_PATH_KEY, "client.json")
+        arguments = bundle
+    }
+
+
+    private fun addQuestionnaireFragment(){
+        val fragment = QuestionnaireFragment()
+        fragment.arguments =
+            bundleOf(QuestionnaireFragment.EXTRA_QUESTIONNAIRE_JSON_STRING to viewModel.questionnaire)
+        childFragmentManager.commit {
+            add(R.id.add_patient_container, fragment, QUESTIONNAIRE_FRAGMENT_TAG)
+        }
     }
 
     private val bleServiceReceiver: BroadcastReceiver = object : BroadcastReceiver() {
@@ -248,10 +295,80 @@ class FragmentMeasure : Fragment(){
          */
         val patientId = formatterClass.retrieveSharedPreference(requireContext(), "patientId")
         if (patientId != null) {
-
+            saveObservations(patientId, systole, diastole, heartrate)
         }
+
     }
 
+    private fun saveObservations(patientId: String, systole: Int, diastole: Int, heartRate: Int) {
+
+        val systolicCode = formatterClass.getCodes(DbResourceViews.SYSTOLIC_BP.name)
+        val diastolicCode = formatterClass.getCodes(DbResourceViews.DIASTOLIC_BP.name)
+        val heartRateCode = formatterClass.getCodes(DbResourceViews.PULSE_RATE.name)
+
+        val quantityObservationList = ArrayList<QuantityObservation>()
+
+        val systoleObservation = QuantityObservation(
+            systolicCode,
+            "Systolic Blood Pressure",
+            systole.toString(),
+            "mmHg")
+        val diastoleObservation = QuantityObservation(
+            diastolicCode,
+            "Diastolic Blood Pressure",
+            diastole.toString(),
+            "mmHg")
+        val heartRateObservation = QuantityObservation(
+            heartRateCode,
+            "Heart Rate",
+            heartRate.toString(),
+            "bpm")
+
+        quantityObservationList.addAll(
+            listOf(
+                systoleObservation,
+                diastoleObservation,
+                heartRateObservation
+            )
+        )
+
+        val patientReference = Reference("Patient/$patientId")
+        val questionnaireFragment =
+            childFragmentManager.findFragmentByTag(QUESTIONNAIRE_FRAGMENT_TAG) as QuestionnaireFragment
+        val questionnaireResponse = questionnaireFragment.getQuestionnaireResponse()
+
+        val encounterReferenceDetails = getEncounterDetails()
+
+        viewModel.createEncounter(
+            patientReference,
+            questionnaireResponse,
+            quantityObservationList,
+            encounterReferenceDetails
+        )
+
+
+    }
+
+    private fun getEncounterDetails() : DbEncounter {
+
+        var encounterId = ""
+        var reference = Reference()
+
+        val encounterItemList = patientDetailsViewModel.getObservationFromEncounter(DbResourceViews.CLIENT_WEARABLE_RECORDING.name)
+        if (encounterItemList.isNotEmpty()) {
+            encounterId = encounterItemList[0].id
+            Reference("Encounter/$encounterId")
+        }else{
+            encounterId = formatterClass.generateUuid()
+            Reference("Encounter/$encounterId")
+        }
+
+        Log.d("&&&&&&", "&&&&&&&")
+        println(encounterId)
+        println(reference)
+
+        return DbEncounter(reference, DbResourceViews.CLIENT_WEARABLE_RECORDING.name, encounterId)
+    }
 
     override fun onDetach() {
         super.onDetach()
@@ -259,9 +376,19 @@ class FragmentMeasure : Fragment(){
         // Log.i(TAG, "onDetach()");
     }
 
-
     companion object {
         const val QUESTIONNAIRE_FILE_PATH_KEY = "questionnaire-file-path-key"
         const val QUESTIONNAIRE_FRAGMENT_TAG = "questionnaire-fragment-tag"
     }
+
+    override fun onStart() {
+        super.onStart()
+        mainViewModel.poll()
+
+        val patientId = formatterClass.retrieveSharedPreference(requireContext(), "patientId")
+        if (patientId != null) {
+            saveObservations(patientId, 120, 78, 80)
+        }
+    }
+
 }

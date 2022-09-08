@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import com.clinkod.kabarak.MainActivity;
 import com.clinkod.kabarak.R;
 import com.clinkod.kabarak.Registration;
+import com.clinkod.kabarak.fhir.helper.FormatterClass;
 import com.clinkod.kabarak.models.BioData;
 import com.clinkod.kabarak.ui.OtpActivity;
 import com.clinkod.kabarak.utils.Constants;
@@ -41,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     private static final String FIRST_TIME_USE = "first_time_use";
     private static final String IS_LOGGED_IN = "is_logged_in";
     private String TAG="LoginActivity";
+    private FormatterClass formatterClass = new FormatterClass();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +58,13 @@ public class LoginActivity extends AppCompatActivity {
             String  idNumberText = idNumber.getText().toString().trim();
             if (!TextUtils.isEmpty(idNumberText)) {
 
+                formatterClass.saveSharedPreference(LoginActivity.this,
+                        "patientId",
+                        "50851f53-a249-419c-80cc-a2a9fd3bb961");
+
                 String  passwordText = etPassword.getText().toString().trim();
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
 
 
             } else {

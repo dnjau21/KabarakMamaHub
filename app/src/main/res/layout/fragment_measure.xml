@@ -158,4 +158,13 @@
             android:layout_below="@id/linearMain"
             android:enabled="false"/>
 
+
+    <androidx.fragment.app.FragmentContainerView
+        android:visibility="gone"
+        android:id="@+id/add_patient_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
 </RelativeLayout>
