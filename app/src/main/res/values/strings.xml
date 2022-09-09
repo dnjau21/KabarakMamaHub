@@ -1,5 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Mamas Hub</string>
+
+    <string name="base_url">https://devhmis.intellisoftkenya.com/api/</string>
+    <string name="fhir_url">https://devhmis.intellisoftkenya.com/fhir/</string>
+
     <string name="app_storage">MumHub</string>
     <string name="title_home">Home</string>
     <string name="title_measure">Measure</string>

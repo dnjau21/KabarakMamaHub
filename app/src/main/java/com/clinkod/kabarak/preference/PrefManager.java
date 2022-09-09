@@ -3,6 +3,8 @@ package com.clinkod.kabarak.preference;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.clinkod.kabarak.fhir.helper.FormatterClass;
+
 public class PrefManager {
 
     Context context;
@@ -79,8 +81,15 @@ public class PrefManager {
     }
 
     public static String getName(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("MothersDetails", Context.MODE_PRIVATE);
-        return sharedPreferences.getString("firstname", "") + sharedPreferences.getString("lastname", "");
+
+        FormatterClass formatterClass = new FormatterClass();
+        String names = formatterClass.retrieveSharedPreference(context, "names");
+        if (names != null){
+            return names;
+        }else {
+            return "";
+        }
+
     }
 
     public static String getNextOfKinFirstName(Context context) {

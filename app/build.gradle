@@ -129,6 +129,17 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
+    //Network
+    implementation 'com.squareup.retrofit2:retrofit:2.6.3'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.6.0'
+
+    implementation 'com.github.davidnjau:DavidLibrary:v2.0.1'
+    implementation 'com.chaos.view:pinview:1.4.3'
+
+
 
 //    debugImplementation "io.objectbox:objectbox-android-objectbrowser:$objectboxVersion"
 

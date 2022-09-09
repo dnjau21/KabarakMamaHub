@@ -33,16 +33,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_PRIVILEGED"
         tools:ignore="ProtectedPermissions" />
-
-
 
     <application
         android:name=".MamasHubApplication"
@@ -54,12 +52,19 @@
         android:theme="@style/Theme.MamasHub"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <service
+            android:name=".services.NotificationService"
+            android:enabled="true"
+            android:exported="true" />
+        <activity
+            android:name=".auth.OtpReset"
+            android:exported="false" />
         <activity
             android:name="com.clinkod.kabarak.ui.OtpActivity"
             android:label="@string/title_activity_otp"
             android:theme="@style/Theme.MamasHub.NoActionBar" />
-        <activity android:name="com.clinkod.kabarak.auth.LoginActivity" />
-        <activity android:name="com.clinkod.kabarak.auth.SignUp" />
+        <activity android:name=".auth.LoginActivity" />
+        <activity android:name=".auth.SignUp" />
         <activity android:name="com.clinkod.kabarak.ui.onboarding.OnBoarding" />
         <activity android:name="com.clinkod.kabarak.Registration" />
         <activity
@@ -71,7 +76,6 @@
             android:theme="@style/Theme.MamasHub.Survey"
             android:windowSoftInputMode="stateHidden" />
         <activity
-
             android:name="com.clinkod.kabarak.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -92,8 +96,8 @@
         </receiver>
         <receiver
             android:name="com.clinkod.kabarak.broadcastreceivers.NetworkChangeBroadcastReceiver"
-            android:label="NetworkChangeReceiver"
-            android:exported="true">
+            android:exported="true"
+            android:label="NetworkChangeReceiver">
             <intent-filter>
                 <action
                     android:name="android.net.conn.CONNECTIVITY_CHANGE"
@@ -101,12 +105,12 @@
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.clinkod.kabarak.broadcastreceivers.BpAndHeartRateAlarmReceiver">
-        </receiver>
-        <receiver android:name="com.clinkod.kabarak.broadcastreceivers.ReadingsReceiver"
+        <receiver android:name="com.clinkod.kabarak.broadcastreceivers.BpAndHeartRateAlarmReceiver"></receiver>
+        <receiver
+            android:name="com.clinkod.kabarak.broadcastreceivers.ReadingsReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.clinkod.kabarak.services.action.ACTION_POST_DATA"/>
+                <action android:name="com.clinkod.kabarak.services.action.ACTION_POST_DATA" />
             </intent-filter>
         </receiver>
         <receiver android:name="com.clinkod.kabarak.broadcastreceivers.DailyDataAlarmReceiver" />
@@ -116,25 +120,27 @@
             android:exported="false" />
         <service
             android:name="com.clinkod.kabarak.services.DataSynchronizationService"
-            android:exported="false" />
-<!--        <service-->
-<!--            android:name=".java.MyFirebaseMessagingService"-->
-<!--            android:exported="false">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
-<!--            </intent-filter>-->
-<!--        </service>-->
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-     See README(https://goo.gl/l4GJaQ) for more. -->
+            android:exported="false" /> <!-- <service -->
+        <!-- android:name=".java.MyFirebaseMessagingService" -->
+        <!-- android:exported="false"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <!--
+ Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/logo" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimary" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

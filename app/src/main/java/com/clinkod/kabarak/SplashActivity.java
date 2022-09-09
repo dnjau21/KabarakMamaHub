@@ -15,6 +15,7 @@ import com.clinkod.kabarak.auth.SignUp;
 import com.clinkod.kabarak.exceptions.LocalPropertyNotFound;
 import com.clinkod.kabarak.fhir.viewmodel.MainActivityViewModel;
 import com.clinkod.kabarak.models.PropertyUtils;
+import com.clinkod.kabarak.services.NotificationService;
 import com.clinkod.kabarak.ui.onboarding.OnBoarding;
 
 public class SplashActivity extends AppCompatActivity {
@@ -38,6 +39,7 @@ public class SplashActivity extends AppCompatActivity {
 
         mainActivityViewModel = new MainActivityViewModel(getApplication());
         mainActivityViewModel.poll();
+        startService(new Intent(getApplicationContext(), NotificationService.class));
 
 
         setContentView(R.layout.activity_splash);

@@ -16,8 +16,10 @@ import androidx.core.content.ContextCompat;
 import com.clinkod.kabarak.MainActivity;
 import com.clinkod.kabarak.R;
 import com.clinkod.kabarak.Registration;
+import com.clinkod.kabarak.fhir.helper.DbLogin;
 import com.clinkod.kabarak.fhir.helper.FormatterClass;
 import com.clinkod.kabarak.models.BioData;
+import com.clinkod.kabarak.retrofit.RetrofitCallsAuthentication;
 import com.clinkod.kabarak.ui.OtpActivity;
 import com.clinkod.kabarak.utils.Constants;
 import com.google.android.material.snackbar.Snackbar;
@@ -43,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String IS_LOGGED_IN = "is_logged_in";
     private String TAG="LoginActivity";
     private FormatterClass formatterClass = new FormatterClass();
+    private RetrofitCallsAuthentication retrofitCallsAuthentication = new RetrofitCallsAuthentication();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,20 +59,25 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(v -> {
 
             String  idNumberText = idNumber.getText().toString().trim();
-            if (!TextUtils.isEmpty(idNumberText)) {
+            String passwordText = etPassword.getText().toString().trim();
 
-                formatterClass.saveSharedPreference(LoginActivity.this,
-                        "patientId",
-                        "50851f53-a249-419c-80cc-a2a9fd3bb961");
+            if (!TextUtils.isEmpty(idNumberText) && !TextUtils.isEmpty(passwordText)) {
 
-                String  passwordText = etPassword.getText().toString().trim();
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-
-
+                DbLogin dbLogin = new DbLogin(idNumberText, passwordText);
+                retrofitCallsAuthentication.loginUser(LoginActivity.this, dbLogin);
 
             } else {
-                idNumber.setError("Please enter your id number");
-                idNumber.requestFocus();
+
+                if (TextUtils.isEmpty(idNumberText)) {
+                    idNumber.setError("Please enter your id number");
+                    idNumber.requestFocus();
+                }
+                if (TextUtils.isEmpty(passwordText)) {
+                    etPassword.setError("Please enter your password");
+                    etPassword.requestFocus();
+                }
+
+
             }
 
 

@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:textStyle="italic"
             android:gravity="center"
             android:id="@+id/tvNoDay"
             android:text="0 days"

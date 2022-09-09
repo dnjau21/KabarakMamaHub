@@ -352,20 +352,14 @@ class FragmentMeasure : Fragment(){
     private fun getEncounterDetails() : DbEncounter {
 
         var encounterId = ""
-        var reference = Reference()
-
         val encounterItemList = patientDetailsViewModel.getObservationFromEncounter(DbResourceViews.CLIENT_WEARABLE_RECORDING.name)
-        if (encounterItemList.isNotEmpty()) {
-            encounterId = encounterItemList[0].id
-            Reference("Encounter/$encounterId")
+        encounterId = if (encounterItemList.isNotEmpty()) {
+            encounterItemList[0].id
         }else{
-            encounterId = formatterClass.generateUuid()
-            Reference("Encounter/$encounterId")
+            formatterClass.generateUuid()
         }
 
-        Log.d("&&&&&&", "&&&&&&&")
-        println(encounterId)
-        println(reference)
+        val reference = Reference("Encounter/$encounterId")
 
         return DbEncounter(reference, DbResourceViews.CLIENT_WEARABLE_RECORDING.name, encounterId)
     }
@@ -385,10 +379,10 @@ class FragmentMeasure : Fragment(){
         super.onStart()
         mainViewModel.poll()
 
-        val patientId = formatterClass.retrieveSharedPreference(requireContext(), "patientId")
-        if (patientId != null) {
-            saveObservations(patientId, 120, 78, 80)
-        }
+//        val patientId = formatterClass.retrieveSharedPreference(requireContext(), "patientId")
+//        if (patientId != null) {
+//            saveObservations(patientId, 120, 78, 80)
+//        }
     }
 
 }

@@ -65,7 +65,6 @@
             android:textColorHint="@color/blue_grey_400" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:visibility="gone"
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

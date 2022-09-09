@@ -102,4 +102,8 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="CircularProgress" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/measure_text</item>
+    </style>
+
 </resources>

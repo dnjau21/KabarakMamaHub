@@ -45,17 +45,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/greeting"/>
+
         <TextView
-                android:id="@+id/profilePrompt"
-                android:text="Hi, Kindly update your profile"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/black"
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="15sp"
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/greeting"/>
+            android:id="@+id/profilePrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/greeting"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Hi, Kindly update your profile"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
         <!--            TODO - Add drop shadow to the layout-->
 
     </RelativeLayout>

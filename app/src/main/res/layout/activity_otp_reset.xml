@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".auth.SignUp">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.OtpReset">
 
     <LinearLayout
         android:orientation="vertical"
@@ -35,7 +34,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:textSize="20sp"
                     android:textColor="@color/white"
-                    android:text="Sign Up"/>
+                    android:text="Otp Verify"/>
 
             </LinearLayout>
 
@@ -82,9 +81,10 @@
                                 android:layout_height="40dp"/>
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etNationalId"
+                                android:id="@+id/etPassword"
                                 android:layout_alignParentEnd="true"
-                                android:hint="National ID no"
+                                android:hint="Password"
+                                android:inputType="textPassword"
                                 style="@style/regTextInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
@@ -105,10 +105,10 @@
                                 android:layout_height="40dp"/>
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/etPhoneNumber"
+                                android:id="@+id/etConfirmPassword"
                                 android:layout_alignParentEnd="true"
-                                android:hint="Phone number"
-                                android:inputType="phone"
+                                android:inputType="textPassword"
+                                android:hint="Confirm password"
                                 style="@style/regTextInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
@@ -116,17 +116,31 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_width="fill_parent"
                             android:orientation="vertical"
-                            android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
+                            <ImageView
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/ic_email"
+                                android:layout_alignParentStart="true"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"/>
+
                             <TextView
-                                android:id="@+id/tvVerify"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:gravity="end"
-                                android:layout_gravity="end"
-                                android:text="Verify my phone number"
+                                android:id="@+id/tvReset"
+                                android:textStyle="bold"
+                                android:text=""
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etOtpCode"
+                                android:layout_alignParentEnd="true"
+                                android:inputType="number"
+                                android:hint="Otp Code"
+                                style="@style/regTextInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
 
@@ -148,7 +162,7 @@
                             android:layout_below="@id/scroll"
                             android:layout_centerInParent="true"
                             android:background="@drawable/rounded_button"
-                            android:text="Sign Up"
+                            android:text="Verify"
                             android:textAllCaps="false"
                             android:textColor="@color/white" />
 
@@ -164,6 +178,5 @@
         </RelativeLayout>
 
     </LinearLayout>
-
 
 </RelativeLayout>

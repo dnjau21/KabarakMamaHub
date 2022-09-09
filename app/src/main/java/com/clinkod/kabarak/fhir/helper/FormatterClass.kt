@@ -1,8 +1,18 @@
 package com.clinkod.kabarak.fhir.helper
 
+import android.app.*
 import android.content.Context
+import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.ViewModelProvider
+import androidx.media.app.NotificationCompat
+import com.clinkod.kabarak.MamasHubApplication
 import com.clinkod.kabarak.R
+import com.clinkod.kabarak.SplashActivity
+import com.clinkod.kabarak.fhir.viewmodel.PatientDetailsViewModel
 import com.clinkod.kabarak.ui.measure.FragmentMeasure
 import java.text.SimpleDateFormat
 import java.util.*
@@ -135,18 +145,72 @@ class FormatterClass {
             return if (days == 2){
                 "Tomorrow"
             }else if (days == 3) {
-                "In 2 \ndays"
+                "2 \ndays"
             }else if (days in 8..29){
-                "In ${days / 7} \nweeks"
+                "${days / 7} \nweeks"
             }else if (days > 30) {
-                "In ${days / 30} \nmonths"
+                "${days / 30} \nmonths"
             }else{
-                "In $days \ndays"
+                "$days \ndays"
             }
 
         }else{
             return "Today"
         }
+
+    }
+
+    fun getHeaders(context: Context):HashMap<String, String>{
+
+        val stringStringMap = HashMap<String, String>()
+        val accessToken = retrieveSharedPreference(context, "token")
+        stringStringMap["Authorization"] = " Bearer $accessToken"
+
+        return stringStringMap
+    }
+
+    fun generateNotification(context: Context) {
+
+        val NOTIFICATION_ID = "1".toInt()
+        val CHANNEL_ID = "my_channel_01"
+        val name: CharSequence = "mamas hub"
+
+        val notificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_LOW
+            val channel = NotificationChannel(CHANNEL_ID, name, importance)
+            channel.description = "Upcoming appointments"
+            channel.enableLights(true)
+            channel.lightColor = Color.RED
+            channel.enableVibration(false)
+            channel.setShowBadge(false)
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        val broadcastIntent = Intent(context, SplashActivity::class.java)
+        val actionIntent = PendingIntent.getBroadcast(
+            context,
+            0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val builder = androidx.core.app.NotificationCompat.Builder(context, CHANNEL_ID)
+
+        builder.setSmallIcon(R.drawable.logo)
+
+        builder.setContentTitle("Upcoming appointment")
+
+        val orderData = "You have an appointment tomorrow"
+
+        builder.setContentText(orderData)
+        builder.setStyle(
+            androidx.core.app.NotificationCompat
+                .BigTextStyle()
+                .bigText(orderData)
+        )
+
+
+        notificationManager.notify(NOTIFICATION_ID, builder.build())
 
     }
 

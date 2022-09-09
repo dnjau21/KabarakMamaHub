@@ -102,6 +102,8 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.2760655721028646" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_otp.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/activity_otp_reset.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/appointment_schedule.xml" value="0.250843505859375" />

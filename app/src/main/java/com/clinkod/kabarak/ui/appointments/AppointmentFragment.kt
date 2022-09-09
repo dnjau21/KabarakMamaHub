@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -38,6 +39,8 @@ class AppointmentFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
 
+    private lateinit var tvEdd: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -57,6 +60,7 @@ class AppointmentFragment : Fragment() {
         )[PatientDetailsViewModel::class.java]
 
         recyclerView = rootView.findViewById(R.id.recyclerView)
+        tvEdd = rootView.findViewById(R.id.tvEdd)
 
         layoutManager = LinearLayoutManager(
             requireContext(),
@@ -79,6 +83,15 @@ class AppointmentFragment : Fragment() {
 
 
         CoroutineScope(Dispatchers.IO).launch {
+
+            //Get edd
+
+            val eddList = patientDetailsViewModel.getObservationFromCode(formatterClass.getCodes(DbResourceViews.EDD.name))
+            if (eddList.isNotEmpty()) {
+                val value = eddList[0].value
+                val edd = "Expected Delivery Date: $value"
+                tvEdd.text = edd
+            }
 
             val appointmentList = ArrayList<DbAppointments>()
 
@@ -114,7 +127,7 @@ class AppointmentFragment : Fragment() {
                             formatterClass.getCodes(DbResourceViews.IPT_VISIT.name) -> { "IPT Visit" }
                             formatterClass.getCodes(DbResourceViews.HIV_NR_DATE.name) -> { "HIV NR Date" }
                             formatterClass.getCodes(DbResourceViews.REFERRAL_PARTNER_HIV_DATE.name) -> { "Referral Partner HIV Date" }
-                            formatterClass.getCodes(DbResourceViews.CLINICAL_NOTES_NEXT_VISIT.name) -> { "Clinical Notes Next Visit" }
+                            formatterClass.getCodes(DbResourceViews.CLINICAL_NOTES_NEXT_VISIT.name) -> { "Clinical Next Visit" }
                             formatterClass.getCodes(DbResourceViews.NEXT_VISIT_DATE.name) -> { "Next Visit Date" }
                             formatterClass.getCodes(DbResourceViews.LLITN_GIVEN_NEXT_DATE.name) -> { "LLITN Given Next Date" }
                             formatterClass.getCodes(DbResourceViews.IPTP_RESULT_NO.name) -> { "IPTP Result No" }
